@@ -1,2 +1,2 @@
-# Road-to-Data-Science
+# Road to Data Science
 My roadmap to study Data Science.

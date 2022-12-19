@@ -23,20 +23,21 @@ def read_path(path):
         root_kp = str(file.readlines() [3])[:-1]    #папка с КП
     return root_kp
 root_kp = read_path("path.txt")
-def get_actual_kp_file(kp_number):
-    actual_file, actual_path = '', ''
+def get_actual_kp_file(kp_numbers):
+    actual_path = ''
+    list_of_paths = []
     # Определяем шаблон для поиска файла
-    for root, dirs, files in os.walk(root_kp):
-        for dir in dirs:
-            # Находим папку с номером КП
-            if dir == kp_number:
-                files_on_dir = os.listdir(os.path.abspath(os.path.join(root, dir)))
-                for file in files_on_dir:
-                    if file.startswith('Offer'):
-                        actual_file = file
-                        actual_path = os.path.join(root, dir, file)
-    return actual_path
-print(get_actual_kp_file(4679))
+    for kp_number in kp_numbers:
+        for root, dirs, files in os.walk(root_kp):
+            for dir in dirs:
+                # Находим папку с номером КП
+                if dir == str(kp_number):
+                    files_on_dir = os.listdir(os.path.abspath(os.path.join(root, dir)))
+                    for file in files_on_dir:
+                        if file.startswith('Offer'):
+                            actual_path = os.path.join(root, dir, file)
+                            list_of_paths.append(actual_path)
+    return list_of_paths
 def get_sheet(path):
 
     """

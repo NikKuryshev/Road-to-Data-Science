@@ -26,17 +26,15 @@ root_kp = read_path("path.txt")
 def get_actual_kp_file(kp_number):
     actual_file, actual_path = '', ''
     # Определяем шаблон для поиска файла
-    pattern = r'\d{2}.\d{2}.\d{4}.xlsx'
-    # Пробегаемся по файлам
     for root, dirs, files in os.walk(root_kp):
         for dir in dirs:
-             # Находим папку с номером КП
-            if dir == str(kp_number):
-                for root, dirs, files in os.walk(os.path.abspath(os.path.join(root, dir))):
-                    for file in files:
-                        if file.startswith('Offer') and re.search(pattern, file):
-                            actual_file = file
-                            actual_path = os.path.join(root, file)
+            # Находим папку с номером КП
+            if dir == kp_number:
+                files_on_dir = os.listdir(os.path.abspath(os.path.join(root, dir)))
+                for file in files_on_dir:
+                    if file.startswith('Offer'):
+                        actual_file = file
+                        actual_path = os.path.join(root, dir, file)
     return actual_path
 print(get_actual_kp_file(4679))
 def get_sheet(path):

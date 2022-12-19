@@ -18,24 +18,24 @@ aggregation = {'Наименование':'first', 'Количество':'sum',
                'Стоимость для конечного пользователя, руб.':'sum', 'Проектная скидка':'mean', 'Цена с проектной скидкой,\n  руб.':'sum', 'Стоимость с проектной скидкой,\n  руб.':'sum'}
 
 # Чтение эксель файла по заданному пути, начиная с 15 строки, используя только заданные столбцы
-def openoffer (path):
+#def openoffer (path):
     #wb = openpyxl.load_workbook(path, read_only=True)
-    offers = ['offer_машзал1', 'offer_машзал2', 'offer_машзал3', 'offer_кроссовая', 'запрос']
+    #offers = ['offer_машзал1', 'offer_машзал2', 'offer_машзал3', 'offer_кроссовая', 'запрос']
     #for sheet in wb:
     #    offers.append(sheet.title)
-    for offer in offers:
-        dict = pd.read_excel(path, sheet_name=offers, skiprows = 14, usecols = 'C:K')
-    for key,arg in dict:
-        df = pd.concat(arg).reset_index(drop=True)
+    #for offer in offers:
+   #     dict = pd.read_excel(path, sheet_name=offers, skiprows = 14, usecols = 'C:K')
+  #  for key,arg in dict:
+ #       df = pd.concat(arg).reset_index(drop=True)
     #df = df.dropna().loc[~df['Артикул'].isin(drop_item)]
-    return dict
+ #   return dict
 
 
-df = pd.DataFrame()
-for path in paths:
-    df = pd.concat([df, openoffer(path)])
+#df = pd.DataFrame()
+#for path in paths:
+  #  df = pd.concat([df, openoffer(path)])
 
-print(df)
+#print(df)
 
 """#Проверка открытия двух файлов и объединения в общаю базу данных
 it = openoffer(path1)

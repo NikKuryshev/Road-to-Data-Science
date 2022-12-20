@@ -22,8 +22,14 @@ def read_path(path):
     with open(path, encoding = 'UTF-8') as file:
         root_kp = str(file.readlines() [3])[:-1]    #папка с КП
     return root_kp
-root_kp = read_path("path.txt")
+root_kp = read_path("path.txt") # Получение папки, где лежат все КП
+
 def get_actual_kp_file(kp_numbers):
+    """
+    Получение пути до файла с КП по заданному номеру.
+    :param kp_numbers: список номеров запрашиваемых КП
+    :return list of paths: Список путей до файлов с КП
+    """
     actual_path = ''
     list_of_paths = []
     # Определяем шаблон для поиска файла
@@ -72,6 +78,5 @@ def get_data(path, sheets):
         data = pd.concat([data,df]).reset_index(drop=True) # Объединение в общую базу данных, если есть несколько страниц в КП
     return data
 
-
-of = get_sheet(path4)
-get_data(path4, of)
+def summary_data(df):
+    return  df

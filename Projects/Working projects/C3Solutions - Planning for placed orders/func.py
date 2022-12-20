@@ -77,6 +77,18 @@ def get_data(path, sheets):
         df = dict.dropna().loc[~dict['Артикул'].isin(drop_item)] # Удаление сервисных артикулов
         data = pd.concat([data,df]).reset_index(drop=True) # Объединение в общую базу данных, если есть несколько страниц в КП
     return data
+def create_file(data):
+    """
+    Создать excel файл с базой данных
+    :param data:  База данных
+    :return:
+    """
+    data.sort_values('Количество', ascending=False).to_excel('./summary.xlsx', sheet_name='summary', index=False)
 
-def summary_data(df):
-    return  df
+def category_data(data):
+    """
+    Создание базы данных с разделением артикулов на категории (шкафы, БРП итд) и подгруппы (C3.RF, C3.BS итд)
+    :param data: база данных
+    :return:
+    """
+

@@ -76,6 +76,8 @@ def get_data(path, sheets):
         dict = pd.read_excel(path, sheet_name=sheet, skiprows=14, usecols='C:K') # Чтение КП по заданным столбцам, начиная с 14 строки
         df = dict.dropna().loc[~dict['Артикул'].isin(drop_item)] # Удаление сервисных артикулов
         data = pd.concat([data,df]).reset_index(drop=True) # Объединение в общую базу данных, если есть несколько страниц в КП
+        data['Дата выдачи КП'] = re.findall(r'\d{2}\.\d{2}\.\d{4}', path)[0]  # Добавление столбца с датой
+        data['Номер КП'] = re.findall(r'\d{3,4}', path)[0]  # Добавление столбца с номером КП
     return data
 def create_file(data):
     """
@@ -91,4 +93,9 @@ def category_data(data):
     :param data: база данных
     :return:
     """
+    for key,value in const.categories.items():
+        for arg in value:
+            if arg in data['Артикул']:
+                data['Категория'] = arg
+    return data
 

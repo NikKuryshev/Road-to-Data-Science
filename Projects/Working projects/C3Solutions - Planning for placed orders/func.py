@@ -3,6 +3,7 @@ import openpyxl
 import os
 import const
 import re
+import unicodedata
 
 
 drop_item = ['C3.DI9999', 'C3.DI9998', 'C3.DL0000', 'C3.DL0001', 'C3.DL0002', 'C3.DL0003', 'C3.DL0004', \
@@ -60,7 +61,16 @@ def get_sheet(path):
         if 'offer' in sheet.title:
             offer.append(sheet.title)
     return offer
-
+    wb.close()
+def get_offer_info(path):
+    offer = openpyxl.load_workbook(path, data_only= True).active
+    partner = unicodedata.normalize('NFKD',offer['C10'].value.replace('Партнер:  ', ''))
+    customer = unicodedata.normalize('NFKD', offer['C11'].value.replace('Заказчик:  ', ''))
+    distr = offer['C13'].value
+    if distr != None:
+        distr = unicodedata.normalize('NFKD', distr.replace('Дистрибьютор: ', ''))
+    return partner, customer, distr
+    offer.close()
 def get_data(path, sheets):
 
     """

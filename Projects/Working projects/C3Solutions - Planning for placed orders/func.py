@@ -1,5 +1,6 @@
 import pandas as pd
 import openpyxl
+import numpy as np
 import os
 import const
 import re
@@ -88,6 +89,13 @@ def get_data(path, sheets):
         data = pd.concat([data,df]).reset_index(drop=True) # Объединение в общую базу данных, если есть несколько страниц в КП
         data['Дата выдачи КП'] = re.findall(r'\d{2}\.\d{2}\.\d{4}', path)[0]  # Добавление столбца с датой
         data['Номер КП'] = re.findall(r'\d{3,4}', path)[0]  # Добавление столбца с номером КП
+    return data
+
+def create_category(data):
+    data['Подкатегория'] = data['Артикул'].str.rstrip('1234567890_')
+    data['Категория'] = None
+    for key, values in const.categories.items():
+        data['Категория'] = np.where(data['Подкатегория'].isin(values), key, data['Категория'])
     return data
 def create_file(data):
     """

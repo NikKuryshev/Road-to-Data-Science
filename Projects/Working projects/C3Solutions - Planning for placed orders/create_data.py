@@ -18,12 +18,14 @@ for path in list_of_paths: # Прогонка по путям
     data = func.get_data(path, list_of_offer) # Чтение листа, получение БД
     data['Партнер'], data['Заказчик'], data['Дистрибьютор'] = func.get_offer_info(path) # Добавление инфы по заказчику
     df = pd.concat([df,data]).reset_index(drop = True) # Объединение данных каждого КП в одну общую базу
+    func.create_category(df)
 
 """
 следующие две строки это вариант выдачи данных по сумме всех заказнных позиций
 """
 sum_data = df.groupby('Артикул').agg(const.aggregation).reset_index() # Суммирование одинаковых артикулов
 sum_data.drop(sum_data[sum_data['Количество'] == 0].index, inplace = True) # удаление нулевых количеств из базы данных
+sum_data.sort_values(['Стоимость с проектной скидкой,\n  руб.','Количество'], ascending = False, inplace = True)
 
 #func.create_file(final_data) #создание excel файла с БД
 print(df.shape)

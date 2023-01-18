@@ -1,11 +1,4 @@
 import pandas as pd
-import numpy as np
-import openpyxl
-import os
-import const
-import re
-
-import func
 
 """
 Создание БД из файла реестра
@@ -18,3 +11,5 @@ data = pd.read_excel(root_registry) # Чтение реестра
 registry = data[['№ КП','дата выдачи', 'Партнер (для КП)', 'Конечный заказчик', 'Дистрибьютор', 'Sale', 'Presale']]
 registry = registry.fillna('Не указано')
 
+reg = registry['№ КП'].tail(2500)
+print(reg)

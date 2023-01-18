@@ -42,7 +42,7 @@ def get_actual_kp_file(kp_numbers):
                 if dir == str(kp_number):
                     files_on_dir = os.listdir(os.path.abspath(os.path.join(root, dir)))
                     for file in files_on_dir:
-                        if file.startswith('Offer'):
+                        if file.startswith('Offer') and file.endswith(('xls', '.xlsx','.xlsm','.xltx','.xltm')):
                             actual_path = os.path.join(root, dir, file)
                             list_of_paths.append(actual_path)
     return list_of_paths

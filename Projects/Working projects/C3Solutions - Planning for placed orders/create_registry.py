@@ -12,5 +12,4 @@ registry = data[['№ КП','дата выдачи', 'Партнер (для К�
 registry = registry.fillna('Не указано')
 
 registry_final = registry[registry['Presale'] != 'Тугаев']
-registry.to_csv('registry', sep='\t', encoding='utf-8')
-reg = registry_final['№ КП'].tail(3000)
+reg = registry_final['№ КП']

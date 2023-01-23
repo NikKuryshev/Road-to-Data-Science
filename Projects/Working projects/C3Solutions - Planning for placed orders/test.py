@@ -1,14 +1,28 @@
 import re
-import create_data
 import func
 import numpy as np
 import const
+import openpyxl
 import pandas as pd
-d = {'Артикул': ['C3.RF4209', 'C3.UMM0020_3', 'C3.MM1620'], 'Кол-во': [1,2,3]}
-dict = pd.DataFrame(d)
-dict['Подкатегория'] = dict['Артикул'].str.rstrip('1234567890_')
-dict['Категория'] = None
-for key, values in const.categories.items():
-    dict['Категория'] = np.where(dict['Подкатегория'].isin(values), key, dict['Категория'])
 
-print(dict)
+kp_number = [5434]
+df = pd.DataFrame()
+"""
+Создание общей БД для заданного списка номеров КП
+"""
+
+list_of_paths = ['C:\\Users\\nkuryshev\\YandexDisk\\C3 Presale\\=КП\\ИНЖИКОМ\\5434\\Offer C3 Solutions 5434 engicom 17.11.2022 v2.xlsx']
+for path in list_of_paths: # Прогонка по путям
+    wb = openpyxl.load_workbook(path, read_only=True)
+    offer = []
+    for sheet in wb:
+        if 'offer' in sheet.title:
+            offer.append(sheet.title)
+    list_of_offer = offer
+    wb.close()
+
+    data = pd.DataFrame()
+    for sheet in list_of_offer:
+        dict = pd.read_excel(path, sheet_name=sheet)  # Чтение КП по заданным столбцам, начиная с 14 строки
+        location = dict[dict['Unnamed: 2'] == 'Артикул'].index
+print(location[0])

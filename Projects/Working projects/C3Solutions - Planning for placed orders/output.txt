@@ -1,0 +1,7 @@
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Открытые технологии\4258\Offer C3 Solutions 4258 Open technology вход.xlsx IndexError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Т1-Интеграция\4495\Offer C3 Solutions 4495 T1-Integration 17.082022 v8.xlsx KeyError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Газпром автоматизация\4603\Offer C3 Solutions 4603 Gazprom automation 02.08.2022 v11.xlsx KeyError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\ФСБ\4817\Offer C3 Solutions 4817 FSS 07.12.2022 v8.xlsx KeyError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\УЦСБ\4858\Offer C3 Solutions 4858 USSB вход.xlsx IndexError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Рубитех\4929\Offer C3 Solutions 4925 Softline 11.11.2022 v6.xlsx KeyError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\ИНЖИКОМ\5434\Offer C3 Solutions 5434 engicom 17.11.2022 v2.xlsx KeyError

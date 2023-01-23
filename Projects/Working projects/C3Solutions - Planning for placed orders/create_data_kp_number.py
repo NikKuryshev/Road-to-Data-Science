@@ -7,7 +7,7 @@ import re
 
 import func
 
-kp_number = [4679, 5486, 5612, 4087, 5411, 5659]
+kp_number = [5434]
 df = pd.DataFrame()
 """
 Создание общей БД для заданного списка номеров КП
@@ -16,7 +16,7 @@ list_of_paths = func.get_actual_kp_file(kp_number) # Получение спис
 for path in list_of_paths: # Прогонка по путям
     list_of_offer = func.get_sheet(path) # Получение списка листов файла
     data = func.get_data(path, list_of_offer) # Чтение листа, получение БД
-    data['Партнер'], data['Заказчик'], data['Дистрибьютор'] = func.get_offer_info(path) # Добавление инфы по заказчику
+    #data['Партнер'], data['Заказчик'], data['Дистрибьютор'] = func.get_offer_info(path) # Добавление инфы по заказчику
     df = pd.concat([df,data]).reset_index(drop = True) # Объединение данных каждого КП в одну общую базу
     func.create_category(df)
 

@@ -7,7 +7,7 @@ import re
 
 import func
 
-kp_number = [5434]
+kp_number = [5434, 4925]
 df = pd.DataFrame()
 """
 Создание общей БД для заданного списка номеров КП

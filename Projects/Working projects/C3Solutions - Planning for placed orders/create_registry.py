@@ -12,5 +12,5 @@ registry = data[['№ КП','дата выдачи', 'Партнер (для К�
 registry = registry.fillna('Не указано')
 
 registry_final = registry[registry['Presale'] != 'Тугаев']
-reg = registry_final['№ КП'].tail(1000)
+reg = registry_final['№ КП']
 print(reg.shape)

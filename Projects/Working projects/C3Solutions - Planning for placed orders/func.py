@@ -82,9 +82,13 @@ def get_data(path, sheets):
     :return: data: База данных по найденному файлу
     """
 
+
     data = pd.DataFrame()
     for sheet in sheets:
-        dict = pd.read_excel(path, sheet_name=sheet, skiprows=14, usecols='C:K') # Чтение КП по заданным столбцам, начиная с 14 строки
+        dict = pd.read_excel(path, sheet_name=sheet)  # Чтение КП по заданным столбцам, начиная с 14 строки
+        location = dict[dict['Unnamed: 2'] == 'Артикул'].index
+
+        dict = pd.read_excel(path, sheet_name=sheet, skiprows=location[0]+1, usecols='C:K') # Чтение КП по заданным столбцам, начиная с 14 строки
         df = dict.dropna().loc[~dict['Артикул'].isin(drop_item)] # Удаление сервисных артикулов
         data = pd.concat([data,df]).reset_index(drop=True) # Объединение в общую базу данных, если есть несколько страниц в КП
         data['Дата выдачи КП'] = re.findall(r'\d{2}\.\d{2}\.\d{4}', path)[0]  # Добавление столбца с датой

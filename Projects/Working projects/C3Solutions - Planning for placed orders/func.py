@@ -45,6 +45,15 @@ def get_actual_kp_file(kp_numbers):
                         if file.startswith('Offer') and file.endswith(('xls', '.xlsx','.xlsm','.xltx','.xltm')):
                             actual_path = os.path.join(root, dir, file)
                             list_of_paths.append(actual_path)
+                        if file == 'Архив':
+                            archive_dir = os.listdir(os.path.abspath(os.path.join(root, dir, file)))
+                            for archive in archive_dir:
+                                if archive.startswith('Offer') and archive.endswith(
+                                        ('xls', '.xlsx', '.xlsm', '.xltx', '.xltm')):
+                                    actual_path = os.path.join(root, dir,file, archive)
+                                    list_of_paths.append(actual_path)
+
+
     return list_of_paths
 def get_sheet(path):
 
@@ -121,3 +130,23 @@ def category_data(data):
                 data['Категория'] = arg
     return data
 
+def full_path(kp_numbers):
+    """
+    Получение пути до файла с КП по заданному номеру.
+    :param kp_numbers: список номеров запрашиваемых КП
+    :return list of paths: Список путей до файлов с КП
+    """
+    actual_path = ''
+    list_of_paths = []
+    # Определяем шаблон для поиска файла
+    for kp_number in kp_numbers:
+        for root, dirs, files in os.walk(root_kp):
+            for dir in dirs:
+                # Находим папку с номером КП
+                if dir == str(kp_number):
+                    files_on_dir = os.listdir(os.path.abspath(os.path.join(root, dir)))
+                    for file in files_on_dir:
+                        if file.startswith('Offer') and file.endswith(('xls', '.xlsx','.xlsm','.xltx','.xltm')):
+                            actual_path = os.path.join(root, dir, file)
+                            list_of_paths.append(actual_path)
+    return list_of_paths

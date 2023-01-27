@@ -20,7 +20,6 @@ for path in list_of_paths: # Прогонка по путям
     try:
         list_of_offer = func.get_sheet(path) # Получение списка листов файла
         data = func.get_data(path, list_of_offer) # Чтение листа, получение БД
-        #data['Партнер'], data['Заказчик'], data['Дистрибьютор'] = func.get_offer_info(path) # Добавление инфы по заказчику
         df = pd.concat([df,data]).reset_index(drop = True) # Объединение данных каждого КП в одну общую базу
     except KeyError:
         fail.append(path+ ' KeyError')
@@ -30,7 +29,6 @@ for path in list_of_paths: # Прогонка по путям
         fail.append((path+' AttributeError'))
     except FileNotFoundError:
         fail.append(path+' FileNotFoundError')
-    #func.create_category(df)
 
 """
 следующие две строки это вариант выдачи данных по сумме всех заказнных позиций
@@ -41,7 +39,7 @@ for path in list_of_paths: # Прогонка по путям
 
 #func.create_file(final_data) #создание excel файла с БД
 end = time.time() - start
-df.to_csv('data_full.csv', sep=';', encoding='utf-8')
+df.to_csv('data_2021.csv', sep=';', encoding='utf-8')
 print(df.shape)
 with open ('output.txt', 'w') as f:
     for line in fail:

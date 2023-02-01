@@ -3,6 +3,7 @@ import const
 import create_registry
 import func
 import time
+import re
 
 start = time.time()
 
@@ -20,6 +21,12 @@ for path in list_of_paths: # Прогонка по путям
     try:
         list_of_offer = func.get_sheet(path) # Получение списка листов файла
         data = func.get_data(path, list_of_offer) # Чтение листа, получение БД
+        first = re.findall('\d{4}\.', path)
+        version = re.findall('\d{1,2}', path)[-1]
+        if len(first) > 0:
+            data['Версия'] = 1
+        else:
+            data['Версия'] = version
         df = pd.concat([df,data]).reset_index(drop = True) # Объединение данных каждого КП в одну общую базу
     except KeyError:
         fail.append(path+ ' KeyError')
@@ -39,7 +46,7 @@ for path in list_of_paths: # Прогонка по путям
 
 #func.create_file(final_data) #создание excel файла с БД
 end = time.time() - start
-df.to_csv('data_2021.csv', sep=';', encoding='utf-8')
+df.to_csv('data_2021_version_service.csv', sep=';', encoding='utf-8')
 print(df.shape)
 with open ('output.txt', 'w') as f:
     for line in fail:

@@ -98,7 +98,7 @@ def get_data(path, sheets):
         location = dict[dict['Unnamed: 2'] == 'Артикул'].index
 
         dict = pd.read_excel(path, sheet_name=sheet, skiprows=location[0]+1, usecols='C:K') # Чтение КП по заданным столбцам, начиная с 14 строки
-        df = dict.dropna().loc[~dict['Артикул'].isin(drop_item)] # Удаление сервисных артикулов
+        df = dict.dropna() #.loc[~dict['Артикул'].isin(drop_item)] # Удаление сервисных артикулов
         data = pd.concat([data,df]).reset_index(drop=True) # Объединение в общую базу данных, если есть несколько страниц в КП
         data['Дата выдачи КП'] = re.findall(r'\d{2}\.\d{2}\.\d{4}', path)[0]  # Добавление столбца с датой
         data['Номер КП'] = re.findall(r'\d{3,4}', path)[0]  # Добавление столбца с номером КП

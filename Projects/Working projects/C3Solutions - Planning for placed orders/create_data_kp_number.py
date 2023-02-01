@@ -16,7 +16,12 @@ list_of_paths = func.get_actual_kp_file(kp_number) # Получение спис
 for path in list_of_paths: # Прогонка по путям
     list_of_offer = func.get_sheet(path) # Получение списка листов файла
     data = func.get_data(path, list_of_offer)
-    data['Версия'] = re.findall(r'v\d{1,2}', path)# Чтение листа, получение БД
+    first = re.findall('\d{4}\.',path)
+    version = re.findall('\d{1,2}', path)[-1]
+    if len(first) > 0:
+        data['Версия'] = 1
+    else:
+        data['Версия'] = version
     df = pd.concat([df,data]).reset_index(drop = True) # Объединение данных каждого КП в одну общую базу
     #func.create_category(df)
 

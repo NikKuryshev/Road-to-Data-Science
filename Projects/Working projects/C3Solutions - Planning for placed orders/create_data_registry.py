@@ -46,9 +46,9 @@ for path in list_of_paths: # Прогонка по путям
 
 #func.create_file(final_data) #создание excel файла с БД
 end = time.time() - start
-df.to_csv('data_2021_version_service.csv', sep=';', encoding='utf-8')
+df.to_csv('data_2022_version_service.csv', sep=';', encoding='utf-8')
 print(df.shape)
-with open ('output.txt', 'w') as f:
+with open ('output2022.txt', 'w') as f:
     for line in fail:
         f.write(line + '\n')
 print(df.shape)

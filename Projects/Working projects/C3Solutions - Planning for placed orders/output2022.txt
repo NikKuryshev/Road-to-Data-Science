@@ -1,0 +1,14 @@
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Оберон\3694\Архив\Offer C3 Solutions 3694 Oberon 05.03.2022.xlsx IndexError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Рубитех\3815\Offer_C3_Solutions_3815_Rubitech_26_10_22_v13_IN.xlsx IndexError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Рубитех\3815\Архив\Offer_C3_Solutions_3815_Rubitech_19_09_2022 v11.xlsx IndexError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Рубитех\3815\Архив\Offer_C3_Solutions_3815_Rubitech_19_09_2022 v11_IN.xlsx IndexError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Рубитех\3815\Архив\Offer_C3_Solutions_3815_Rubitech_29_06_2022_v3.xlsx IndexError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Марвел\4179\Offer C3 Solutions 4179 Merlion.xlsx IndexError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Современные коммуникации\4184\Offer C3 Solutions 4184 вход.xlsx IndexError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Открытые технологии\4258\Offer C3 Solutions 4258 Open technology вход.xlsx IndexError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Т1-Интеграция\4495\Offer C3 Solutions 4495 T1-Integration 17.082022 v8.xlsx IndexError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Телеком Интеграция\4679\Архив\Offer C3 Solutions 4679 Telecom Integratsiya 18.11.2022 v9.xlsx IndexError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Рубитех\4929\Offer C3 Solutions 4929 Rubitech 24.10.2022_v7_OUT (1).xlsx KeyError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Рубитех\4929\Архив\Offer C3 Solutions 4929 Rubitech 24.10.2022_v4_IN .xlsx KeyError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Рубитех\4929\Архив\Offer C3 Solutions 4929 Rubitech 24.10.2022_v5_IN .xlsx KeyError
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\Тегрус\5404\Offer C3 Solutions 5404 Tegrus 10.11.2022.xlsx IndexError

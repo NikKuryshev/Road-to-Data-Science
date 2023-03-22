@@ -94,7 +94,7 @@ def get_data(path, sheets):
 
     data = pd.DataFrame()
     for sheet in sheets:
-        dict = pd.read_excel(path, sheet_name=sheet)  # Чтение КП по заданным столбцам, начиная с 14 строки
+        dict = pd.read_excel(path, sheet_name=sheet)  # Чтение КП по заданным столбцам, поиск строки где начинается название столбца - Артикул
         location = dict[dict['Unnamed: 2'] == 'Артикул'].index
 
         dict = pd.read_excel(path, sheet_name=sheet, skiprows=location[0]+1, usecols='C:K') # Чтение КП по заданным столбцам, начиная с 14 строки

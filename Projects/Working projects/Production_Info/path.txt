@@ -1,0 +1,7 @@
+Адрес директории для создания анализа КП. Строки не сбивать!
+
+#Папка с коммерческими предложениями
+C:\Users\nkuryshev\YandexDisk\C3 Presale\=КП\
+
+#Путь к ЛОКАЛЬНОМУ реестру
+C:\Users\nkuryshev\Desktop\test\reestr.xlsx\
